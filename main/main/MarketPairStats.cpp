@@ -5,13 +5,14 @@ MarketPairStats::MarketPairStats(std::string pair_code)
     this->pair_code = pair_code;
     int attempts = 0;
     cpr::Response r;
+	// We try three times to connect to server than display error message with cerr.
     while (attempts < 3)
     {
         try {
         std::string pair_url = "https://api.zonda.exchange/rest/trading/ticker/" + pair_code;
         r = cpr::Get(cpr::Url{ pair_url });
         //cpr::Parameters{ {"anon", "true"}, {"key", "value"} });
-
+// checking whether the connection was successful
         if (r.status_code != 200)        // 200
             throw r.status_code;
 
@@ -35,10 +36,12 @@ MarketPairStats::MarketPairStats(std::string pair_code)
 
 }
 
+// Initializing destructor just to be sure.
 MarketPairStats::~MarketPairStats()
 {
 }
 
+// Parsing data we received
 void MarketPairStats::showBidAsk()
 {
     auto v1 = jason_object["ticker"]["highestBid"].get<std::string>();
@@ -47,6 +50,7 @@ void MarketPairStats::showBidAsk()
 
 }
 
+// The name explains it well
 void MarketPairStats::showAllStats()
 {
     std::cout << jason_object.dump(4) << std::endl;

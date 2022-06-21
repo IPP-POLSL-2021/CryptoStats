@@ -3,6 +3,7 @@
 #include "data_container.cpp"
 #include "MarketPairStats.h"
 
+// Initializing list of available pairs.
 std::string list_of_trading_pairs[] = {
 
 	"DAI-PLN",
@@ -200,6 +201,7 @@ std::string list_of_trading_pairs[] = {
 	"FTM-PLN"
 };
 
+// Function to test whether someting is in given array
 bool in_array(std::string value, std::string* array,int size)
 {
 	
