@@ -1,0 +1,7 @@
+﻿  data_container.cpp
+C:\Users\Irek\source\repos\IPP-POLSL-2021\CryptoStats\main\main\include_declaraction.h(15,10): fatal error C1083: Nie można otworzyć pliku dołącz: 'cpr/cpr.h': No such file or directory
+  main.cpp
+C:\Users\Irek\source\repos\IPP-POLSL-2021\CryptoStats\main\main\include_declaraction.h(15,10): fatal error C1083: Nie można otworzyć pliku dołącz: 'cpr/cpr.h': No such file or directory
+  MarketPairStats.cpp
+C:\Users\Irek\source\repos\IPP-POLSL-2021\CryptoStats\main\main\include_declaraction.h(15,10): fatal error C1083: Nie można otworzyć pliku dołącz: 'cpr/cpr.h': No such file or directory
+  Generowanie kodu...
