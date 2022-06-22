@@ -1,231 +1,72 @@
-﻿#pragma once
+#pragma once
 #include "include_declaraction.h"
-#include "data_container.cpp"
 #include "MarketPairStats.h"
 
-// Initializing list of available pairs.
-std::string list_of_trading_pairs[] = {
-
-	"DAI-PLN",
-	"USDT-GBP",
-	"LML-PLN",
-	"BSV-EUR",
-	"LTC-ETH",
-	"LML-BTC",
-	"GRT-USDT",
-	"AVAX-EUR",
-	"ZRX-EUR",
-	"BSV-USDT",
-	"BTC-USDC",
-	"AVAX-PLN",
-	"BSV-BTC",
-	"ZRX-BTC",
-	"DOT-BTC",
-	"DOGE-USDT",
-	"REEF-USDT",
-	"ALGO-USDT",
-	"GRT-PLN",
-	"XTZ-USDT",
-	"AMLT-PLN",
-	"ETH-USDC",
-	"BOB-BTC",
-	"XRP-BTC",
-	"DASH-PLN",
-	"USDC-GBP",
-	"ETH-GBP",
-	"ALG-BTC",
-	"XRP-EUR",
-	"SUSHI-PLN",
-	"BTC-USD",
-	"WIS-USDT",
-	"BOB-PLN",
-	"USDC-USDT",
-	"COMP-PLN",
-	"DASH-USDT",
-	"BTC-EUR",
-	"REP-PLN",
-	"TRX-PLN",
-	"UNI-USDT",
-	"LSK-BTC",
-	"BTG-BTC",
-	"GLM-PLN",
-	"DOT-PLN",
-	"LINK-PLN",
-	"ALGO-USDC",
-	"AVAX-USDC",
-	"ETH-BTC",
-	"OMG-BTC",
-	"REEF-PLN",
-	"DAI-BTC",
-	"DOGE-EUR",
-	"USDT-USD",
-	"EOS-USDT",
-	"BTG-PLN",
-	"GRT-BTC",
-	"SOL-USDC",
-	"LINK-USDT",
-	"ZEC-USDT",
-	"DAI-USDC",
-	"BSV-PLN",
-	"WIS-BTC",
-	"ALGO-EUR",
-	"ZEC-BTC",
-	"PAY-EUR",
-	"XRP-USDT",
-	"UNI-PLN",
-	"SUSHI-BTC",
-	"BCC-BTC",
-	"BSV-ETH",
-	"ETH-EUR",
-	"GLM-BTC",
-	"TRX-EUR",
-	"XLM-ETH",
-	"MATIC-PLN",
-	"ETH-PLN",
-	"EOS-BTC",
-	"TRX-ETH",
-	"ADA-USDT",
-	"MANA-BTC",
-	"MANA-USDT",
-	"SXP-PLN",
-	"CHZ-USDT",
-	"COMP-EUR",
-	"BCP-PLN",
-	"BCC-USDC",
-	"DAI-GBP",
-	"SOL-EUR",
-	"BCC-EUR",
-	"USDT-PLN",
-	"DASH-BTC",
-	"ADA-PLN",
-	"MANA-PLN",
-	"ETH-USDT",
-	"REEF-EUR",
-	"BAT-PLN",
-	"REP-BTC",
-	"BTG-USDT",
-	"GAME-PLN",
-	"XRP-ETH",
-	"GRT-EUR",
-	"DASH-EUR",
-	"AAVE-EUR",
-	"AVAX-USDT",
-	"TRX-USDT",
-	"ENJ-PLN",
-	"BTC-GBP",
-	"SXP-EUR",
-	"USDC-EUR",
-	"FTM-USDT",
-	"REP-ETH",
-	"BCC-USDT",
-	"AAVE-BTC",
-	"XLM-USDT",
-	"LINK-BTC",
-	"GAME-BTC",
-	"WIS-PLN",
-	"LUNC-USDT",
-	"PUNDIX-USDT",
-	"LSK-ETH",
-	"LINK-ETH",
-	"LSK-PLN",
-	"SOL-PLN",
-	"OMG-ETH",
-	"XLM-BTC",
-	"BAT-EUR",
-	"ATRI-USDT",
-	"FTM-EUR",
-	"ETH-USD",
-	"NEU-PLN",
-	"BCC-ETH",
-	"ZRX-PLN",
-	"CHZ-PLN",
-	"XTZ-PLN",
-	"COMP-BTC",
-	"ALGO-PLN",
-	"USDC-PLN",
-	"LTC-BTC",
-	"BTG-EUR",
-	"ATRI-EUR",
-	"USDC-USD",
-	"XTZ-EUR",
-	"LTC-PLN",
-	"DOGE-PLN",
-	"MKR-PLN",
-	"DAI-USDT",
-	"ADA-EUR",
-	"COMP-USDT",
-	"AMLT-BTC",
-	"MKR-BTC",
-	"LTC-USDT",
-	"DAI-EUR",
-	"USDT-EUR",
-	"ZEC-EUR",
-	"NEU-BTC",
-	"SXP-USDT",
-	"ZEC-PLN",
-	"MATIC-USDT",
-	"XRP-PLN",
-	"SOL-USDT",
-	"DOT-EUR",
-	"DOT-USDT",
-	"ATRI-PLN",
-	"XTZ-BTC",
-	"LUNC-BTC",
-	"AAVE-PLN",
-	"AAVE-USDT",
-	"BAT-BTC",
-	"REP-EUR",
-	"OMG-PLN",
-	"XLM-PLN",
-	"BCC-PLN",
-	"ENJ-USDT",
-	"PAY-BTC",
-	"LSK-EUR",
-	"UNI-BTC",
-	"OMG-EUR",
-	"LTC-EUR",
-	"BTC-PLN",
-	"ALG-PLN",
-	"TRX-BTC",
-	"UNI-EUR",
-	"SUSHI-EUR",
-	"BTC-USDT",
-	"SUSHI-USDT",
-	"PAY-PLN",
-	"XLM-EUR",
-	"MANA-EUR",
-	"LSK-USDT",
-	"EOS-PLN",
-	"PUNDIX-BTC",
-	"EOS-EUR",
-	"FTM-PLN"
-};
-
-// Function to test whether someting is in given array
-bool in_array(std::string value, std::string* array,int size)
-{
-	
-    for (int i = 0; i < size; i++)
-    {
-        if (value == array[i])
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
 
 
 int main(int argc, char* argv[])
+
+
+
 {
-	std::cout << std::setw(8) << "|" << std::setw(23) << "bid|" << std::setw(42) << "ask|" << std::endl;
-    for(int i = 1; i <= argc-1; i++)
-        if (in_array(argv[i], list_of_trading_pairs, sizeof(list_of_trading_pairs) / sizeof(list_of_trading_pairs[0]))) {
-            MarketPairStats* current_pair = new MarketPairStats(argv[i]);
-            current_pair->showBidAsk();
-            delete current_pair;
-        }
+
+	int size_of_trading_pairs = sizeof(list_of_trading_pairs) / sizeof(list_of_trading_pairs[0]);
+
+		if(argc==1){
+			ShowManPage();
+		}
+		else{
+			std::string argv1 = argv[1];
+
+			if (argv1 == "-help" && argc >= 3)
+			{
+				std::cout << "--help does not accept any arguments.";
+			}
+			else if (argv1 == "-help") {
+				ShowManPage();
+			}
+
+
+			else if (argv1 == "--help" && argc >= 3)
+			{
+				std::cout << "--help does not accept any arguments.";
+			}
+			else if (argv1 == "--help")
+			{
+				ShowManPage();
+			}
+
+
+			else if (argv1 == "--all-info" && argc == 2)
+			{
+				std::cout << "-all-info requires at least 1 argument.";
+			}
+			else if (argv1 == "--all-info" && in_array(argv[2], list_of_trading_pairs, size_of_trading_pairs)){
+				for (int i = 2; i <= argc - 1; i++) 
+				{
+					if (in_array(argv[i], list_of_trading_pairs, size_of_trading_pairs)) 
+					{
+						MarketPairStats* current_pair = new MarketPairStats(argv[i]);
+						current_pair->showAllStats();
+						delete current_pair;
+					}
+				}
+			}
+
+
+			else
+			{
+				std::cout << std::setw(8) << "|" << std::setw(23) << "bid|" << std::setw(42) << "ask|" << std::endl;
+				for (int i = 1; i <= argc - 1; i++)
+					if (in_array(argv[i], list_of_trading_pairs, size_of_trading_pairs )) 
+					{
+						MarketPairStats* current_pair = new MarketPairStats(argv[i]);
+						current_pair->showBidAsk();
+						delete current_pair;
+					}
+			}
+		}	
+
     return 0;
 
 }

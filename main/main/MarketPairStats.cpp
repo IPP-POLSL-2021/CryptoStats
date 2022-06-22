@@ -8,21 +8,25 @@ MarketPairStats::MarketPairStats(std::string pair_code)
 	// We try three times to connect to server than display error message with cerr.
     while (attempts < 3)
     {
-        try {
-        std::string pair_url = "https://api.zonda.exchange/rest/trading/ticker/" + pair_code;
-        r = cpr::Get(cpr::Url{ pair_url });
-        //cpr::Parameters{ {"anon", "true"}, {"key", "value"} });
-// checking whether the connection was successful
-        if (r.status_code != 200)        // 200
-            throw r.status_code;
 
-        r.header["content-type"];       // application/json; charset=utf-8
-        r.text;                         // JSON text string
+        try 
+        {
+            std::string pair_url = "https://api.zonda.exchange/rest/trading/ticker/" + pair_code;
+            r = cpr::Get(cpr::Url{ pair_url });
+            //cpr::Parameters{ {"anon", "true"}, {"key", "value"} });
+            
+            if (r.status_code != 200)        // 200
+                throw r.status_code;
+
+
+            r.header["content-type"];       // application/json; charset=utf-8
+            r.text;                         // JSON text string
         }
         catch (const int status_code)
         {
             std::cerr << "couldn't resolve curl connection status code: " << status_code;
             attempts++;
+
             if (attempts == 3)
             {
                 std::cerr << "couldn't establish connection";
