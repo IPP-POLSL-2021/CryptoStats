@@ -18,7 +18,8 @@
 #include <vector>
 // for convenience
 using json = nlohmann::json;
-extern std::string list_of_trading_pairs[386];
+extern std::string list_of_trading_pairs[193];
+extern std::string reverse_list_of_trading_pairs[193];
 bool in_array(std::string value, std::string* array, int size);
 void ShowManPage();
 
