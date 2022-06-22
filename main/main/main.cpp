@@ -1,9 +1,13 @@
-﻿#pragma once
+#pragma once
 #include "include_declaraction.h"
 #include "MarketPairStats.h"
 
 
+
 int main(int argc, char* argv[])
+
+
+
 {
 
 	int size_of_trading_pairs = sizeof(list_of_trading_pairs) / sizeof(list_of_trading_pairs[0]);
